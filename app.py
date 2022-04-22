@@ -3,10 +3,11 @@ import hashlib
 import base64
 from flask import Flask, render_template, request, flash, redirect, url_for, session
 from datetime import timedelta, datetime
+import certifi
+ca = certifi.where()
 
 # connect to database ( MongoDB )
-client = pymongo.MongoClient("mongodb+srv://doadmin:35b68ZJNd1L4n07x@gridcluster-d2319a10.mongo.ondigitalocean.com/GridCluster?authSource=admin&replicaSet=gridcluster"
-)
+client = pymongo.MongoClient("mongodb+srv://doadmin:35b68ZJNd1L4n07x@gridcluster-d2319a10.mongo.ondigitalocean.com/GridCluster?authSource=admin&replicaSet=gridcluster?retryWrites=true&w=majority", tlsCAFile=ca)
 db = client["GridCluster"]
 col = db["credentials"]
 boxData = db["boxdata"]
