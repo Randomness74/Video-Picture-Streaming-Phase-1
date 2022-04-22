@@ -1,0 +1,42 @@
+/* I dont think this code is in use anymore, left here for refrence if needed*/
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display&display=swap');
+
+html {
+  scroll-behavior: smooth;
+  background-color: black;
+  opacity: 1;
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+}
+
+body {
+  font-family: /*"Helvetica", "Playfair", "Segoe UI", "Geneva", "Verdana", "sans-serif"*/ "Roboto";
+  background-color: black;
+  /*color: black;*/
+  opacity: 1;
+  size: 30in;
+}
+
+.button {
+  color: white;
+  /* background-color: whitesmoke; */
+  background-color: #0060bf;
+  border: 2px solid white;
+  padding: 10px;
+  border-radius: 10px;
+}
+.button:hover {
+  background-color: #0080df;
+  border: 3px solid white;
+  padding: 9px;
+}
+.button:active {
+  color: black;
+  background-color: #80bfff;
+  border: 3px solid black;
+  padding: 9px;
+}
+
+img {
+  
+}
+

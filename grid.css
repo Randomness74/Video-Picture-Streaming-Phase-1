@@ -1,0 +1,414 @@
+/*margin T R B L*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/*Asks user to enter landscape mode*/
+/* @media screen and (orientation:portrait) {
+  .headerImg {
+    display: img;
+    height: 80px;
+  }
+
+  h12 {
+    display: h12;
+    color: white;
+    top: 268px;
+    font-size: 20px;
+  }
+
+  .header > img {
+    display: none;
+    color: white;
+    font-size: 50px;
+    left: right;
+    text-align: center;
+    top: 266px;
+  }
+
+  #create-button {
+    display: none;
+  }
+
+  section {
+    display: none;
+  }
+
+  .item {
+    display: none;
+  }
+
+  .item > img {
+    display: none;
+  }
+
+  html {
+    background: black;
+  }
+  
+  
+} */
+/*Displays everything for desktops and for users in landscape mode on mobile*/
+/*INCLUDES GENERAL SCREEN WIDTH CASES*/
+@media screen /* and (orientation:landscape) */ {
+
+  * {
+  box-sizing: border-box;
+  }
+  
+  .item {  margin: auto; width: 100%; height: 100%;
+           text-align: center; font-size: 30px;
+           background-color: transparent; color: white;
+           border: 6px solid rgba(255,255,255,0.3); padding: 5px; border-radius: 20px;
+           transition-duration: 0.2s;
+          /* Obtained from W3Schools */
+          overflow: hidden;
+          overflow-wrap: break-word;
+           }
+
+  .item:hover {
+    /*background-image: linear-gradient(#838181,#716a6a);*/
+    background-size: 100% 100%;
+    background-align: center;
+    padding: 10px;
+    /*opacity: 0.5;*/
+    background-color: rgba(255,255,255,0.1);
+    border: 9px solid rgba(255,255,255,0.5);
+    padding: 2px;
+  }
+  
+  .item:active {
+    color: black;
+    border: 9px solid rgba(0,0,0,0.7);
+    /*border: 9px solid black;*/
+    padding: 10px;
+    background-color: rgba(255,255,255,0.3);
+    padding: 2px;
+  } 
+
+  img {
+    width: calc(100% - 20px);
+  }
+  
+  .item > a > img {
+    margin-top: 20px;
+    /* width: 50%; */
+    height: 50%;
+    width: auto;
+    /* HERO WALLER: Obtained from https://stackoverflow.com/questions/12991351/css-force-image-resize-and-keep-aspect-ratio */
+    opacity: 1;
+    image-align: center;
+    transition-duration: 0.3s;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  }
+
+  .item:hover > a > img {
+    height: 55%;
+    filter: drop-shadow(0px 4px 4px rgba(255, 255, 255, 0.5));
+  }
+
+  .item:active > a > img {
+    height: 45%;
+    filter: drop-shadow(0px 4px 4px rgba(255, 255, 255, 1));
+  }
+  
+  .header > img {
+    display: block;
+    /* margin-right: auto; */
+    margin-left: calc(50% - 297.44px);
+    margin-right: 20px;
+    align-content: center;
+    float: left;
+    /* width: 100%; */
+    image-align: center;
+  }
+
+  /*.header > b {
+    text-align: center;
+  }*/
+
+  .header { width: 100%; /*height: 100%;*/ height: 100px;
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25)); border-radius: 50px; 
+    background-color: #4040bf;
+    font-size: 48px;
+    color: white;
+    padding: 20px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: left;
+    align-items: center;
+  }
+  
+  #create-button { font-size: 20px;
+                   text-align: center;
+                   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                   border-radius: 50px;
+                   margin-left: auto; margin-right: auto;
+                   color: white;
+                   width: 100%; height: 100%;}
+
+  .button1 { margin-left: auto; margin-right: auto;
+      color: white;
+      background-color: #0060bf;
+      border: 6px solid white;
+      padding: 30px;
+      border-radius: 30px;
+      transition-duration: 0.2s; 
+      text-align: center;
+      width: 50%;
+  }
+
+  .button2 { margin-left: auto; margin-right: auto;
+      color: white;
+      background-color: #0060bf;
+      border: 6px solid white;
+      padding: 30px;
+      border-radius: 30px;
+      transition-duration: 0.2s; 
+      text-align: center;
+      margin: 10px;
+  }
+  
+  .button1:hover {
+    background-color: #0080df;
+    border: 9px solid white;
+    padding: 27px;
+  }
+  
+  .button1:active {
+    color: black;
+    background-color: #80bfff;
+    border: 9px solid black;
+    padding: 27px;
+  } 
+
+  .button2:hover {
+    background-color: #0080df;
+    border: 9px solid white;
+    padding: 27px;
+  }
+  
+  .button2:active {
+    color: black;
+    background-color: #80bfff;
+    border: 9px solid black;
+    padding: 27px;
+  } 
+  
+  .button-exit {
+    color: white;
+    background-color: #bf0000;
+    border: 6px solid white;
+    padding: 30px;
+    border-radius: 30px;
+    transition-duration: 0.2s;
+    margin: 10px;
+  }
+  
+  .button-exit:hover {
+    background-color: #df2000;
+    border: 9px solid white;
+    padding: 27px;
+  }
+
+  .button-exit:active {
+    color: black;
+    background-color: #ff9080;
+    border: 9px solid black;
+    padding: 27px;
+  }
+
+  input {
+    border-radius: 10px;
+    border: none;
+    background-color: white;
+    /* padding: 5px; */
+    padding: 10px;
+    margin: 5px;
+    width: calc(100% - 10px);
+    height: 50px;
+    color: black;
+    /*float: right;*/ /*Found on Google via Stack Overflow*/
+  }
+      
+  #slideshow-grid {
+    width: 100%; height: 100%;
+    /*background-color: #0060bf;*/
+    background-color: #0040a0;
+    display: grid;
+    grid-template-columns: calc(25% - 10px) calc(25% - 10px) calc(25% - 10px) calc(25% - 10px);
+    /*places next item in row until row fills and moves to creating a new row and placing in there*/
+    grid-auto-flow: row;
+    grid-auto-rows: 300px;
+    padding: 20px;
+    padding-right: 10px;
+    gap: 10px;
+    /*border: 10px solid black;*/
+    border: 10px solid #4080df;
+    border-radius: 20px;
+    overflow-y: auto; 
+    overflow-x: hidden;
+  }
+
+  p {
+    color: white;
+    background-size: 50px;
+    padding: 9px;  
+  }
+  
+  .headerImg { 
+    display: none;
+  }
+  
+  h12 { 
+    display: none;
+    
+  }
+
+  /*right now the issue is scroll bar looks weird*/
+  /* width and create and exit buttons are kind of cut out and completely cut out on mobile*/
+  ::-webkit-scrollbar {
+    width: 20px;
+    height: 50%;
+    border-radius: 50px;
+    transition-duration: 0.2s; 
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: white; 
+    border-radius: 50px;
+  }
+   
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #80bfff; 
+    border-radius: 50px;
+    transition-duration: 0.2s;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    background: #0080df; 
+    border-radius: 50px;
+  }
+
+  ::-webkit-scrollbar-thumb:active {
+    background: #0040bf; 
+    border-radius: 50px;
+  }
+
+
+  html {
+    font-family: /*"Helvetica", "Playfair", "Segoe UI", "Geneva", "Verdana", "sans-serif"*/ "Roboto";
+    scroll-behavior: smooth;
+    background-color: #000040;
+    overflow: hidden;
+  }
+
+  .website-grid {
+    display: inline-grid;
+    width: 100%;
+    height: calc(100vh - 16px);
+    /*height: 100%;*/
+    grid-template-rows: 100px auto max-content;
+    /*grid-template-rows: 10% 30% 10%;*/
+    gap: 10px;
+    /*I(Hero Waller) obtained 100vh from Sebastien H on StackOverflow (https://stackoverflow.com/questions/7357818/how-can-an-html-element-fill-out-100-of-the-remaining-screen-height-using-css)*/
+    gap: 10px;
+  }
+  .creation-ui-grid {
+    display: inline-grid;
+    width: 100%;
+    grid-template-columns: calc(50% - 10px) calc(25% - 10px) calc(25% - 10px);
+    text-align: left;
+    gap: 10px;
+    margin-bottom: 25px;
+  }
+}
+
+
+/*          N A R R O W E R   S C R E E N S          */
+/*orientation:portrait REPLACED WITH max-width: 1000px*/
+
+@media screen and (max-width: 1200px) {
+
+  #create-button { font-size: 20px;
+                   text-align: center;
+                   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                   border-radius: 50px;
+                   margin-left: auto; margin-right: auto;
+                   color: white;
+                   width: 100%; height: 100%;}
+      
+  #slideshow-grid {
+    grid-template-columns: calc(33.33% - 10px) calc(33.33% - 10px) calc(33.33% - 10px);
+  }
+}
+
+
+
+
+
+@media screen and (max-width: 900px) {
+
+  .header > img {
+    margin-left: calc(50% - 233.08px);
+  }
+  .header { width: 100%; height: 100%; height: 100px;
+    font-size: 36px;
+  }
+  
+  #create-button { font-size: 20px;
+                   text-align: center;
+                   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                   border-radius: 50px;
+                   margin-left: auto; margin-right: auto;
+                   color: white;
+                   width: 100%; height: 100%;}
+      
+  #slideshow-grid {
+    grid-template-columns: calc(50% - 10px) calc(50% - 10px);
+  }
+
+  .creation-ui-grid {
+    grid-template-columns: calc(50% - 10px) calc(50% - 10px);
+  }
+
+  .title {
+    grid-column: 1 / 3;
+  }
+}
+
+
+
+
+
+@media screen and (max-width: 600px) {
+
+  .header > img {
+    display: block;
+    margin-left: auto;
+    margin-right: none;
+  }
+
+  .header {
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  #create-button { font-size: 20px;
+                   text-align: center;
+                   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+                   border-radius: 50px;
+                   margin-left: auto; margin-right: auto;
+                   color: white;
+                   width: 100%; height: 100%;}
+
+  #slideshow-grid {
+    grid-template-columns: calc(100% - 10px);
+  }
+  .creation-ui-grid {
+    grid-template-columns: calc(100% - 10px);
+  }
+  .title {
+    grid-column: 1 / 2;
+  }
+}
