@@ -5,7 +5,7 @@ from flask import Flask, render_template, request, flash, redirect, url_for, ses
 from datetime import timedelta, datetime
 
 # connect to database ( MongoDB )
-client = pymongo.MongoClient("mongodb://doadmin:35b68ZJNd1L4n07x@gridcluster-d2319a10.mongo.ondigitalocean.com/admin?retryWrites=true&w=majority")
+client = pymongo.MongoClient("mongodb://doadmin:35b68ZJNd1L4n07x@gridcluster-d2319a10.mongo.ondigitalocean.com/GridCluster?retryWrites=true&w=majority")
 db = client["GridCluster"]
 col = db["credentials"]
 boxData = db["boxdata"]
@@ -30,7 +30,7 @@ def index():
     # if username isn't in database, creates a new account
     else:
       flash('Registered!')
-      col.insert_one({username: password_hash, "privilege": "user"}) # changes this later
+      col.insert_one({username: password_hash, "privilege": "viewer"}) # changes this later
 
   return render_template("index.html")
 
@@ -50,7 +50,7 @@ def register():
           print("logged in")
           # for vihaan
           session.permanent = True
-          session["username"] = "username"
+          session["username"] = username
           if data["privilege"] == "user":
             session["privilege"] = "user"
             return redirect(url_for("user"))
@@ -125,14 +125,17 @@ def viewer():
 @app.route("/save", methods=["POST"])
 def saveSlideshowChanges():
   if session["privilege"] != "viewer":
+    print("writing")
     img = request.form.get('image')
     p = request.form.get('pageTitle')
     print(img)
     print(p)
+    print(datetime.now())
+    print(session["username"])
     slideCollections = list(slideData.find({}))
     slideCollectionsLength = len([x for x in slideCollections if x["title"]==p])
     with app.app_context():
-      slideData.insert_one({"image": img, "num": slideCollectionsLength, "title": p, "id": p[0:5] + img[0:5] + str(slideCollectionsLength), "username": session["username"], "date": datetime.now()}) #removed "date" field to allow ross to continue working on js 
+      slideData.insert_one({"image": img, "num": slideCollectionsLength, "title": p, "id": p[0:5] + img[0:5] + str(slideCollectionsLength), "username": session["username"], "date": str(datetime.now())}) #removed "date" field to allow ross to continue working on js 
       
   return '', 204
 
@@ -146,12 +149,12 @@ def load():
   slideNum = []
   for slide in slideCollections:
     if slide["title"] == slideshowName:
-     slideList.append(slide["image"]+"|"+slide["id"])
+     slideList.append(slide["image"]+"|"+slide["id"]+"|"+slide["username"]+"|"+slide["date"])
      slideNum.append(slide["num"]);
   finalSlidesList = [x for y, x in sorted(zip(slideNum, slideList))]
   finalSlides = ""
   for i in range(0, len(finalSlidesList)):
-    finalSlides += slideList[i] + "|" + str(i) + "|"
+    finalSlides += slideList[i] + "|" + str(i) + "|" 
   finalSlides = finalSlides[:-1]
   print(finalSlides)
   #return render_template("index.html", slideData = finalSlides) 
@@ -159,9 +162,13 @@ def load():
 
 @app.route("/delete", methods=["GET", "POST"])
 def delete():
-  if session["privilege"] != "viewer":
+  slideshowName = request.args.get('id')
+  creator = ""
+  for item in list(slideData.find({})):
+    if item["id"] == slideshowName:
+      creator = item["username"]
+  if session["privilege"] == "admin" or (session["privilege"] == "user" and session["username"] == creator):
     print('here')
-    slideshowName = request.args.get('id')
     print(list(slideData.find({})))
     slideData.delete_one({"id": slideshowName})
   return '', 204;
@@ -189,11 +196,11 @@ def createNewSlideshow():
     title = request.form.get('title')
     with app.app_context():
       if boxData.find_one({"title": title}):
-        flash("Please rename the slideshow.") #don't we have ids to prevent this problem now?
+        flash("Please rename the slideshow.") #don't we have ids to prevent this problem now? #The reason it appears on the Registry Page must be because it defaults to this.
       else:
-        rendered = render_template('slideshow-template.html')
+        template = open('templates/slideshow-template.html', 'r')
         file = open("templates/" + title.replace(" ", "_") + '-slideshow.html', 'w')
-        file.write(rendered)
+        file.write(template.read())
         boxData.insert_one({"image": img, "title": title})
         
   return '', 204
