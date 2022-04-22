@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="height=device-height, initial-scale=1">
+<head>
+	<title>REGISTER</title>
+	<link rel="stylesheet" href="../static/css/style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+  {% block content %} {% with messages =
+  get_flashed_messages(with_categories=true) %} {% for category, message in
+  messages %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %} {% endwith %}
+
+<body>
+
+  <!--"container-header" replaced with "header"-->
+  <!--Image moved and scaled down-->
+  <!--VPS-->
+  <div class="header">
+    <!-- CIT Logo -->
+    <img src="https://teachers.henrico.k12.va.us/deeprun/cit/web_images/logo-cropped.png" alt="CIT Logo" align="left" style="width: 60px; height: 60px;">
+  Video
+  Picture
+  Streaming
+  </div>
+  <!-- CIT Logo -->
+	<div class="container" style = "margin: 100px auto auto auto">
+    <h2>REGISTER</h2>
+    <form method="POST" action="">
+      <input type="username" id="username" name="username" placeholder="Username"/>
+      <br><br>
+      <input type="password" id="password" name="password" placeholder="Password"/>
+      <br></br>
+      <input class="button-register" value="Register (✎)" type="submit" id="submit">
+    </form>
+    
+    <p class="my-5">Already Have An Account? <a href="/login" class="text-white-50 fw-bold">Login</a></p>
+  </div>
+</body>
+  {% endblock %}
+</html>
+
+<script>
+  
+</script>

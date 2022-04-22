@@ -1,0 +1,58 @@
+<!--actual edit page not viewer page-->
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="height=device-height, initial-scale=1">
+  
+  <head>
+    <meta charset="utf-8">
+    
+    <title>Slide</title>
+    <script src="../static/js/slides.js"></script>
+    <link href="../static/css/slides-edit.css" rel="stylesheet" type="text/css" />
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+    <script>
+  $( function() {
+    $( "#sortable" ).sortable();
+  } );
+  </script>
+    
+  </head>
+  <body onload="loadSlides(' {{slideData}} ');loadDropDown(' {{slideData}} ');getTitle();timeOutandHide();">  
+    <button class="open-DropDown-Menu" onclick="myFunction()"><!--˅ -->Options (↓)</button>
+    <div id="myDropdown2" class="dropdown-content">
+      <!--<a href="#">this says stuff</a>-->
+      <div id="myDropdown" class="dropdown-format">
+        <ul id = "sortable">
+        <!-- images go here -->
+        </ul>
+      </div>
+      <div>
+        <div id="form5" style = "display: none;">
+        <form action="/save" onsubmit="run2()" class="form-container" method="POST">
+          <input type="hidden" name="pageTitle" value="" id="pTitle1">
+          <h3>Add an image</h3>
+      
+          <label for="image"><b>Image</b></label>
+          <input type="text" placeholder="Enter Image Link" name="image" id="img1" required> <input type ="file" id="img2">
+          <button type="submit" id="btn" onclick="hide('form5');invisOff('form6'); return validateForm()">Create</button>
+          <button type="button" class="btn cancel" onclick="hide('form5');invisOff('form6')">Close</button>
+        </form>
+      </div>
+      <button onclick="unhide('form5');invis('form6')" id = "form6">New Image (✚)</button>  <!--"hide('form6')"-->
+      <button onclick="javascript:location.reload(true)">Save (💾)</button>
+      </div>
+    </div>
+    <!-- Slideshow container -->
+    <div id="slideshow-container">
+    <!-- Full-width images with number and caption text -->
+      <div id="slideshow2">
+        
+      </div>
+      <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+      <a class="next" onclick="plusSlides(1)">&#10095;</a>
+    
+      <h1 id = "pTitle1"></h1>
+    </div>
+    </body>
+</html>

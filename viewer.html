@@ -1,0 +1,84 @@
+ <link href="../static/css/grid.css" rel="stylesheet" type="text/css"  />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="height=device-height, initial-scale=1">
+<img class="headerImg" src="https://teachers.henrico.k12.va.us/deeprun/cit/web_images/logo-cropped.png" alt="CIT Logo">
+<div class="website-grid">
+<div class="header">
+<!-- <div class="title"> -->
+<!-- VPS Banner -->
+<img src = "https://teachers.henrico.k12.va.us/deeprun/cit/web_images/logo-cropped.png" alt="CIT Logo" style="width: 60px; height: 60px;"><b>Video Picture Streaming</b>
+<!-- <img class="header" src="https://live.staticflickr.com/65535/51943943302_e21bbf37ab_b.jpg"> -->
+<!-- </div> -->
+     </div>
+     <script src="../static/js/script.js"></script>
+     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+     <script type=text/javascript>
+           $(function() {
+             $('a#test').on('click', function(e) {
+               e.preventDefault()
+               $.getJSON('create',
+                   function(data) {
+                 //do nothing
+               });
+               return false;
+             });
+           });
+   </script>
+<body onload="load2('{{ datad }}')">
+   <div id="slideshow-grid">
+     <!--
+      <div class="item">
+        <a href='/load?pageName=slideshow-template'> 
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Generic_Camera_Icon.svg/1213px-Generic_Camera_Icon.svg.png" />
+        </a>  
+        <p>Slideshow Name</p>
+        <!--<a href='/edit?pageName=slideshow-template'>
+          <button>Edit</button>
+        </a>  not sure as to the diffrence between the edit and load templates-->  
+       <!--</div>
+     -->
+      <div class="item">
+        <a href='/load?pageName=slideshow-template'> 
+        <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Generic_Camera_Icon.svg/1213px-Generic_Camera_Icon.svg.png" /> -->
+        <img src="https://www.pngkey.com/png/full/10-104955_camera-icon-white-small-camera-icon-white-png.png"/> <!-- Obtained from Google-searching "white camera icon transparent background" -->
+        </a>  
+        <p>Slideshow Name</p>
+       </div>
+     <!--
+      <div class="item">
+        <a href='/load?pageName=slideshow-template'> 
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Generic_Camera_Icon.svg/1213px-Generic_Camera_Icon.svg.png" />
+        </a>  
+        <p>Slideshow Name</p>
+       </div>
+      <div class="item">
+        <a href='/load?pageName=slideshow-template'> 
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Generic_Camera_Icon.svg/1213px-Generic_Camera_Icon.svg.png" />
+        </a>  
+        <p>Slideshow Name</p> 
+       </div>
+      <div class="item">
+        <a href='/load?pageName=slideshow-template'> 
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Generic_Camera_Icon.svg/1213px-Generic_Camera_Icon.svg.png" />
+        </a>  
+        <p>Slideshow Name</p> 
+       </div>
+      <div class="item">
+        <a href='/load?pageName=slideshow-template'> 
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Generic_Camera_Icon.svg/1213px-Generic_Camera_Icon.svg.png" />
+        </a>  
+        <p>Slideshow Name</p>
+       </div>
+      <div class="item">
+        <a href='/load?pageName=slideshow-template'> 
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Generic_Camera_Icon.svg/1213px-Generic_Camera_Icon.svg.png" />
+        </a>  
+        <p>Slideshow Name</p>
+       </div>
+      <div class="item">
+        <a href='/load?pageName=slideshow-template'> 
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Generic_Camera_Icon.svg/1213px-Generic_Camera_Icon.svg.png" />
+        </a>  
+        <p>Slideshow Name</p>
+       </div>-->
+   </div></body>

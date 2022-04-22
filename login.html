@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="viewport" content="height=device-height, initial-scale=1">
+
+  <!--"container-header" replaced with "header"-->
+  <!--Image moved and scaled down-->
+  <!--VPS-->
+  <div class="header">
+    <!-- CIT Logo -->
+    <img src="https://teachers.henrico.k12.va.us/deeprun/cit/web_images/logo-cropped.png" alt="CIT Logo" align="left" style="width: 60px; height: 60px;">
+ Video Picture Streaming
+  </div>
+<!--VPS-->
+
+
+<head>
+	<title>VPS4</title>
+  <!-- Old style
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
+	 crossorigin="anonymous">
+   -->
+  <link rel="stylesheet" href="../static/css/style.css">
+</head>
+
+
+  {% block content %} {% with messages =
+  get_flashed_messages(with_categories=true) %} {% for category, message in
+  messages %}
+  <div class="flash">{{ message }}</div>
+  {% endfor %} {% endwith %}
+
+  
+<body>
+	<div class="container" style = "margin: 100px auto auto auto">
+			<div class="bg-dark text-white">
+				<div class="p-5 text-center">
+					<h2>LOGIN</h2>
+					<p class="text-white-50 mb-5">Enter credentials</p>
+
+
+          <form method="POST" enctype="">        
+              <input type="username" id="username" name="username" placeholder="Username"/>             
+            </br><br>      
+              <input type="password" id="password" name="password" placeholder="Password"/>
+            </br><br>
+            <input class="button" value="Login (➞)" type="submit" id="submit">
+          </form>
+
+
+          <p class="my-5">Don't have an account? <a href="/" class="text-white-50 fw-bold">Register</a></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+  {% endblock %}
+</html>
+
+<!-- Old Style 
+
+		<div class="row justify-content-center align-items-center">
+			<div class="bg-dark text-white">
+				<div class="p-5 text-center">
+					<h2>LOGIN</h2>
+					<p class="text-white-50 mb-5">Enter credentials</p>
+
+          <form method="POST" enctype="multipart/form-data">
+            <div class="form-outline form-white mb-3">
+              <input type="username" id="username" name="username" class="form-control form-control-lg" placeholder="Username"/>
+              
+            </div>
+            <div class="form-outline form-white mb-3">
+              <input type="password" id="password" name="password" class="form-control form-control-lg" placeholder="Password"/>
+              
+            </div>
+            <input class="button" value="Login" type="submit" id="submit">
+          </form>
+
+-->

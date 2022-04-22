@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width">
+    <title>replit</title>
+    <link href="../static/css/grid.css" rel="stylesheet" type="text/css" />
+</head>
+<!--https://upload.wikimedia.org/wikipedia/commons/4/49/Seattle_monorail01_2008-02-25.jpg
+  var x='https://commons.wikimedia.org/wiki/File:Dice-1-b.svg'; var y='Dice'; load2(x+','+y) -->
+<body onload="load2('{{ datad }}')">
+  <script src="../static/js/script.js"></script>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+  <section id="grid-1">
+    <div id="create-button">
+      <div id="form5" style = "display: none;">
+        <form action="/create" onsubmit="run2()" class="form-container" method="POST">
+          <h3>Create new slideshow</h3>
+      
+          <label for="image"><b>Image</b></label>
+          <input type="text" placeholder="Enter Image Link" name="image" id="img1" required>
+      
+          <label for="title"><b>Title</b></label>
+          <input type="text" placeholder="Title" name="title" id="title1" required>
+      
+          <button type="submit" id="btn" onclick="hide('form5');unhide('form6')">Create</button>
+          <button type="button" class="btn cancel" onclick="hide('form5');unhide('form6')">Close</button>
+        </form>
+      </div>
+      <button onclick="unhide('form5');hide('form6')" id = "form6">New Slideshow</button>
+    </div>
+    <div class="item-2">
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Generic_Camera_Icon.svg/1213px-Generic_Camera_Icon.svg.png" style="width:33%;"/>
+      <p>Slideshow Name</p>
+    </div>
+    <div class="item-3">
+      <a href='/load?pageName=slideshow-template'>
+      <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/37/Generic_Camera_Icon.svg/1213px-Generic_Camera_Icon.svg.png" style="width:33%;"/></a>
+      <p>Slideshow Name</p>
+      <a href='/edit?pageName=slideshow-template'>
+        <button>Edit</button>
+      </a>
+    </div>
+  </section>
+</body>
