@@ -5,7 +5,7 @@ from flask import Flask, render_template, request, flash, redirect, url_for, ses
 from datetime import timedelta, datetime
 
 # connect to database ( MongoDB )
-client = pymongo.MongoClient("mongodb://doadmin:35b68ZJNd1L4n07x@gridcluster-d2319a10.mongo.ondigitalocean.com/GridCluster?retryWrites=true&w=majority")
+client = pymongo.MongoClient("mongodb+srv://doadmin:35b68ZJNd1L4n07x@gridcluster-d2319a10.mongo.ondigitalocean.com/GridCluster?retryWrites=true&w=majority")
 db = client["GridCluster"]
 col = db["credentials"]
 boxData = db["boxdata"]
