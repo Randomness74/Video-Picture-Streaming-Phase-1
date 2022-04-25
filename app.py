@@ -4,7 +4,7 @@ import base64
 from flask import Flask, render_template, request, flash, redirect, url_for, session
 from datetime import timedelta, datetime
 import certifi
-ca = certifi.where()
+ca = "./ca-certificate.ct"
 
 # connect to database ( MongoDB )
 client = pymongo.MongoClient("mongodb+srv://doadmin:35b68ZJNd1L4n07x@gridcluster-d2319a10.mongo.ondigitalocean.com/admin?authSource=admin&replicaSet=gridcluster&tls=true", tlsCAFile=ca)
