@@ -7,7 +7,7 @@ import certifi
 ca = certifi.where()
 
 # connect to database ( MongoDB )
-client = pymongo.MongoClient("mongodb+srv://doadmin:35b68ZJNd1L4n07x@gridcluster-d2319a10.mongo.ondigitalocean.com/GridCluster?authSource=admin&replicaSet=gridcluster?retryWrites=true&w=majority", tlsCAFile=ca)
+client = pymongo.MongoClient("mongodb+srv://doadmin:35b68ZJNd1L4n07x@gridcluster-d2319a10.mongo.ondigitalocean.com/GridCluster?authSource=admin&replicaSet=gridcluster?retryWrites=true&w=majority", ssl_ca_certs=ca)
 db = client["GridCluster"]
 col = db["credentials"]
 boxData = db["boxdata"]
